@@ -1,0 +1,59 @@
+!!!
+%html{lang: "ru"}
+  %head
+    %meta{charset: "utf-8"}
+    %title= "#{@item[:title]} « mixael.ru"
+    %link{href: "/style.css", media: "screen", rel: "stylesheet", type: "text/css"}
+    %meta{content: "nanoc #{Nanoc::VERSION}", name: "generator"}
+    %link{href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet"}/
+  %body
+    #wrap
+      / #menu
+      /   %ul
+      /     %li
+      /       %a{href: "http://mixael.ru/"} Home
+      /     %li.page_item.page-item-191
+      /       %a{href: "http://mixael.ru/gallery"} Фотоальбом
+      #header
+        %span.btitle
+          %a{href: "/"} mixael.ru
+        %p.description
+          %a{href: "/"}
+            дневник живого человека
+        / #rss-big
+        %a{href: "http://mixael.ru/feed", title: "Subscribe to this site with RSS"}
+      #portrait-bg{ class: "portrait-bg-#{Random.rand(7) + 1}" }
+      / #catmenu
+      /   %ul
+      /     %li.cat-item
+      /       %a{href: 'http://twitter.com/mix86'}
+      /         %i.fa.fa-twitter
+      /         @mix86
+      #content
+        = yield
+    #sidebar
+      #sidebar-about
+        %img.me{alt: "mixael", src: "/images/me.png", width: "190"}
+        %span
+          %p
+            Меня зовут mixael,
+            %br
+            здесь я выкладываю свои картинки.
+          %p
+            %i.fa.fa-twitter
+            %a{href: 'http://twitter.com/mix86'}= "Twitter"
+          %p
+            %i.fa.fa-camera-retro
+            %a{href: 'http://500px.com/mixael'}= "500px"
+          %p
+            %i.fa.fa-github
+            %a{href: 'http://github.com/mixael'}= "Github"
+      #sidebar-twit
+        %a.twitter-timeline{"data-dnt" => "true", "data-widget-id" => "431784662524915712", href: "https://twitter.com/mix86"} Tweets by @mix86
+        :javascript
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    #footer
+      #credits
+        %small
+          Copyright © 2014
+          %strong mixael.ru

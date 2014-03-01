@@ -1,0 +1,13 @@
+- items_with_tag(tag).each do |post|
+  .entry
+    .entrytitle_wrap
+      .entrytitle
+        %h1
+          = link_to post[:title], post.path
+      .endate= pretty_date(post)
+    .entrybody
+      %p
+        = post.compiled_content
+      %p.tags
+        Теги:
+        = tags_for post, base_url: '/tag/'

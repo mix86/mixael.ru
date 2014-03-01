@@ -1,0 +1,30 @@
+
+- get_page(sorted_articles, p).each do |post|
+  .entry
+    .entrytitle_wrap
+      / .entrydate
+      /   .dateMonth Апр
+      /   .dateDay 28
+      .entrytitle
+        %h1
+          = link_to post[:title], post.path
+      .endate= pretty_date(post)
+    .entrybody
+      %p
+        = post.compiled_content
+      %p.tags
+        Теги:
+        = tags_for post, base_url: '/tag/'
+
+#nav-global.navigation
+.nav-previous
+  %a{href: "/page/#{p + 1}"}
+    %span &larr; туда
+    %span= ' '
+
+  - if p - 1 == 1
+    %a.alignright{href: "/"}
+      %span сюда &rarr;
+  - elsif p - 1 > 1
+    %a.alignright{href: "/page/#{p - 1}"}
+      %span сюда &rarr;

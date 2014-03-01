@@ -3,3 +3,5 @@ old
 *.sublime-*
 output
 tmp
+.ruby-gemset
+.ruby-version
